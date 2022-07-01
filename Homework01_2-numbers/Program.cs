@@ -1,7 +1,8 @@
-﻿Console.Clear();
-
-int a = new Random().Next(-1000,1000);
-int b = new Random().Next(-1000,1000);
+﻿// Console.Clear();
+Console.Write("Введите любое число: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Второе число сформируется компьютером");
+int b = new Random().Next(-100000,100000);
 
 int max = a;
 int min = b;
