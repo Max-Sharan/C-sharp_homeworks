@@ -27,8 +27,14 @@ else
 int maxFrom(int x, int y, int z)
 {
     int max = x;
-    if(y > x) max = y;
-    if(z > y) max = z;
+    if(y > max)
+    {
+        max = y;
+    } 
+    if(z > max) 
+    {
+        max = z;
+    }
     Console.WriteLine();
     Console.WriteLine("Среди чисел: " + x + ", " + y + " и " + z);
     Console.WriteLine("Максимальное число: " + max);
