@@ -1,4 +1,4 @@
-﻿Console.Write("Введите любые числа подряд (через 'запятую' или 'пробел'): ");
+﻿Console.Write("Вводите любые целые числа подряд: ");
 string? userText = Console.ReadLine();
 
 string? buff = String.Empty;
@@ -35,9 +35,9 @@ void ConvertText(int[] array, string text)
 {
     for (int i = 0, j = 0; j < text.Length; j++)
     {
-        if (text[j] != ',' && text[j] != ' ')
+        if (text[j] != ',' && text[j] != ' ' && text[j] != '.')
             buff += text[j];
-        else
+        else if (buff != String.Empty)
         {
             array[i] = Convert.ToInt32(buff);
             buff = String.Empty;
@@ -49,11 +49,14 @@ void ConvertText(int[] array, string text)
 }
 int CountEmptyString(string text, int count)
 {
-    for (int i = 0; i < text.Length; i++)
+    for (int i = 0, j = 1; i < text.Length; i++)
     {
-        if (text[i] == ',' || text[i] == ' ')
+        if (text[i] != ',' && text[i] != ' ' && text[i] != '.')
+            j++;
+        else if (j > 0)
         {
             count++;
+            j = 0;
         }
     }
     return count;
