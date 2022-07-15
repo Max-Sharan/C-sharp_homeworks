@@ -1,18 +1,60 @@
-﻿int InputInt(string msg)
+﻿Console.Write("Введите любые числа подряд (через 'запятую' или 'пробел'): ");
+string? userText = Console.ReadLine();
+
+string? buff = String.Empty;
+int num = CountEmptyString(userText, 1);
+
+int[] numbers = new int[num];
+ConvertText(numbers, userText);
+Console.Write("Введённые Вами числа: ");
+PrintArray(numbers);
+Console.WriteLine();
+EvenNumbers(numbers, 0);
+
+void EvenNumbers(int[] array, int even)
 {
-    Console.Write(msg);
-    return Convert.ToInt32(Console.ReadLine());
-}
-void CountNumbers(int count, int num)
-{
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        int number = InputInt("Вводите любые целые числа: ");
-        if (number > 0)
-            count++;
+        if (array[i] > 0)
+            even++;
     }
-    Console.WriteLine($"Кол-во чисел больше 0 = {count}");
+    Console.WriteLine($"Кол-во чисел > 0 = {even}");
 }
 
-int num = InputInt("Какое кол-во чисел хотите ввести? ");
-CountNumbers(0, num);
+void PrintArray(int[] array)
+{
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.Write($"]");
+}
+
+void ConvertText(int[] array, string text)
+{
+    for (int i = 0, j = 0; j < text.Length; j++)
+    {
+        if (text[j] != ',' && text[j] != ' ')
+            buff += text[j];
+        else
+        {
+            array[i] = Convert.ToInt32(buff);
+            buff = String.Empty;
+            i++;
+        }
+        if (j == text.Length - 1)
+            array[i] = Convert.ToInt32(buff);
+    }
+}
+int CountEmptyString(string text, int count)
+{
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (text[i] == ',' || text[i] == ' ')
+        {
+            count++;
+        }
+    }
+    return count;
+}
