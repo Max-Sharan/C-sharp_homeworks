@@ -1,34 +1,12 @@
-﻿
-int rowNum = InputInt("Введите количество строк: ");
+﻿int rowNum = InputInt("Введите количество строк: ");
 int colNum = InputInt("Введите количество столбцов: ");
-int[,] numbers = new int[rowNum, colNum];
+double[,] numbers = new double[rowNum, colNum];
 
 FillArray(numbers);
 PrintArray(numbers); 
 
-Console.Write("Введите подряд 2 числа, каждое не больше 9: ");
-string? userText = Console.ReadLine();
 
-string? text = String.Empty;
-int[] nums = new int[userText.Length];
-
-for (int i = 0; i < userText.Length; i++)
-{
-    text += userText[i];
-    nums[i] = Convert.ToInt32(text);
-    text = String.Empty;
-}
-
-if (nums[0] < numbers.GetLength(0) && nums[1] < numbers.GetLength(1))
-{
-    Console.WriteLine($"Элемент на позиции [{nums[0]},{nums[1]}] = {numbers[nums[0], nums[1]]}");
-}
-else
-    Console.WriteLine($"Элемента на позиции [{nums[0]},{nums[1]}] в массиве нет!"); 
-
-
-
-void PrintArray(int[,] array)
+void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -40,13 +18,13 @@ void PrintArray(int[,] array)
     }
 }
 
-void FillArray(int[,] array)
+void FillArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(0, 10);
+            array[i, j] = Math.Round(-50 + new Random().NextDouble() * (1 + 100)) / 10;
         }
     }
 }
