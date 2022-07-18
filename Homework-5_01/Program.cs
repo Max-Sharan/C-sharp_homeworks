@@ -8,20 +8,17 @@
 void PrintArray(int[] array)
 {
     Console.Write("[ ");
-    for (int i = 0; i < array.Length - 1; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]}, ");
+        Console.Write($"{array[i]} ");
     }
-    Console.Write($"{array[array.Length - 1]} ]");
+    Console.Write($"]");
 }
 void PrintEvenNum(int[] array, int even)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] % 2 == 0)
-        {
-            even += 1;
-        }
+        if (array[i] % 2 == 0) even ++;
     }
     Console.WriteLine($"Количество чётных чисел в массиве = {even}");
 }
