@@ -1,7 +1,6 @@
 ﻿Console.Write("Вводите любые целые числа подряд: ");
 string? userText = Console.ReadLine();
 
-string? buff = String.Empty;
 int num = CountEmptyString(userText, 1);
 
 int[] numbers = new int[num];
@@ -33,6 +32,7 @@ void PrintArray(int[] array)
 
 void ConvertText(int[] array, string text)
 {
+    string? buff = String.Empty;
     for (int i = 0, j = 0; j < text.Length; j++)
     {
         if (text[j] != ',' && text[j] != ' ' && text[j] != '.')
