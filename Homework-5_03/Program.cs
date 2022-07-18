@@ -2,17 +2,17 @@
 {
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = Convert.ToDouble(new Random().Next(1, 100)) / 10;
+        array[i] = Math.Round(-10 + new Random().NextDouble() * 21, 1);
     }
 }
 void PrintArray(double[] array)
 {
     Console.Write("[ ");
-    for (int i = 0; i < array.Length - 1; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]}, ");
+        Console.Write($"{array[i]} ");
     }
-    Console.Write($"{array[array.Length - 1]} ]");
+    Console.Write($"]");
 }
 int InputInt()
 {
