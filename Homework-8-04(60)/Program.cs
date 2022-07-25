@@ -2,7 +2,7 @@
 int numCols = InputInt("Введите количество столбцов: ");
 int numDept = InputInt("Введите глубину массива: ");
 
-int[] basic = new int[89];
+int[] basic = new int[90];
 int[,,] numbers = new int[numDept, numRows, numCols];
 
 FillBasicArray(basic);
