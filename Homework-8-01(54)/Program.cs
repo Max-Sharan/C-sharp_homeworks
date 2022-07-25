@@ -42,7 +42,7 @@ void ChangeFirstToMin(int[,] matrix, int i, int x, int currentIndex = 0)
 int InputInt(string? msg)
 {
     Console.Write(msg);
-    return Convert.ToInt32(Console.ReadLine());
+    return int.Parse(Console.ReadLine());
 }
 
 void FillArray(int[,] matrix)

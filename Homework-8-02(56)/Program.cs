@@ -3,11 +3,8 @@ int numCols = RandomNumbers(2, 6);
 
 while (numCols == numRows)
 {
-    if (numCols == numRows)
-    {
-        numRows = RandomNumbers(3, 8);
-        numCols = RandomNumbers(2, 6);
-    }
+    numRows = RandomNumbers(3, 8);
+    numCols = RandomNumbers(2, 6);
 }
 
 int[,] numbers = new int[numRows, numCols];
