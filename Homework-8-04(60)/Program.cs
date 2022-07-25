@@ -3,9 +3,11 @@ int numCols = InputInt("Введите количество столбцов: ")
 int numDept = InputInt("Введите глубину массива: ");
 
 int[] basic = new int[89];
+int[,,] numbers = new int[numDept, numRows, numCols];
+
 FillBasicArray(basic);
 ShuffleBasicArray(basic);
-int[,,] numbers = new int[numDept, numRows, numCols];
+
 FillArray(basic, numbers);
 PrintArray(numbers);
 
@@ -15,21 +17,14 @@ int InputInt(string? msg)
     Console.Write(msg);
     return Convert.ToInt32(Console.ReadLine());
 }
-void PrintBasicArray(int[] matrix)
-{
-    for (int i = 0; i < matrix.Length; i++)
-    {
-        Console.Write(matrix[i] + " ");
-    }
-}
 
 void ShuffleBasicArray(int[] matrix)
 {
     for (int i = 0; i < matrix.Length; i++)
     {
-        int random = new Random().Next(0, matrix.Length);
-        int buffer = matrix[random];
-        matrix[random] = matrix[i];
+        int randomIndex = new Random().Next(0, matrix.Length);
+        int buffer = matrix[randomIndex];
+        matrix[randomIndex] = matrix[i];
         matrix[i] = buffer;
     }
 }
