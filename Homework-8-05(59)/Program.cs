@@ -17,13 +17,15 @@ PrintNewArray(numbers);
 
 void PrintNewArray(int[,] matrix)
 {
+    int minCol = FindMinimumCol(matrix);
+    int minRow = FindMinimumRow(matrix);
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        if (i == FindMinimumRow(matrix))
+        if (i == minRow)
             continue;
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (j == FindMinimumCol(matrix))
+            if (j == minCol)
                 continue;
             Console.Write(matrix[i, j] + " ");
         }
