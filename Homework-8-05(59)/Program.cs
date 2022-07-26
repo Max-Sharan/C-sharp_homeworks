@@ -1,5 +1,4 @@
-﻿
-int InputInt(string? msg)
+﻿int InputInt(string? msg)
 {
     Console.Write(msg);
     return int.Parse(Console.ReadLine());
